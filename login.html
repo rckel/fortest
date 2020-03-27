@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>学习训练与考核登录</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="./meeting/static/js/ajax.js"></script>
+<style>
+body{padding:0;margin:0;font-size:15px;background-image: url(./meeting/static/img/bkm.png); background-position:center top;background-repeat: no-repeat;background-color:#000;}
+TD{padding-right:5px;text-align:right;}
+.login_pan{position:relative;margin:auto;width:345px;height:319px;margin-top:360px;}
+.login_pan #title{position:absolute;left:320px;top:100px;font-size: 36px;color:#336699;}
+.login_pan #version{position:absolute;left:390px;top:170px;font-size: 13px;color:gray;}
+.login_pan #tt{position:absolute;left:560px;top:80px;color:gray;}
+.login_pan #tt td{text-align:right;font-size:15px;}
+#uid, #un{font-size:18px;margin-left:60px;margin-top:5px;width:240px;height:32px;padding:2px;border:none;background:none;}
+#b1{width:242px;height:32px;border:none;background-image:url(./meeting/static/img/but01.png);margin-top:15px;}
+</style>
+</head>
+<body scroll="no">
+<a href="javascript:void(0)" id="cmd" style="display:none;">cmd</a>
+<form method="POST" action="index.php" id="myfrm">
+<div class="login_pan">
+    <div style="background-image: url(./meeting/static/img/login1.png);width: 315px;height: 47px;margin:15px;">
+        <input class="vin" type="text" id="uid" name="uid" value="" />
+    </div>
+    <div style="background-image: url(./meeting/static/img/login2.png);width: 315px;height: 47px;margin:15px;">
+        <input id="un" name="un" class="vin" type="password" value="" />
+    </div>
+    <div style="background-image: url(./meeting/static/img/login3.png);width: 315px;height: 47px;margin:15px;cursor: pointer;" id="login"></div>
+</div>
+</form>
+
+<script type="text/javascript" language="javascript">
+    (function(){
+        var $ = function(v){return document.getElementById(v);}
+        $('login').onclick = function(){
+            var xm = $('uid').value;
+            var pw = $('un').value;
+            if(xm=="" || pw==""){
+                alert('用户名或者密码不能为空');
+            }else{
+                $('myfrm').submit();
+            }
+        };
+        $('uid').onkeypress = function(e){
+            var evt = e || event;
+            if(evt.keyCode==13)
+                $('un').focus();
+        };
+        $('un').onkeypress = function(e){
+            var evt = e || event;
+            if(evt.keyCode==13)
+                $('login').onclick();
+        };
+    })();
+    
+    </script>
+</body>
+</html>
